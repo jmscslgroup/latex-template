@@ -1,0 +1,285 @@
+\ProvidesPackage{rahulbhadani}
+\usepackage{dblfloatfix}    
+\usepackage{graphicx,hhline}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage[final]{pdfpages}
+\usepackage{xcolor}
+\usepackage{gensymb}
+\usepackage{csvsimple}
+\usepackage{physics}
+\usepackage{xspace}
+\usepackage{minted}
+\usepackage{mdframed}
+\usemintedstyle{manni}
+
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    citecolor=green,
+    filecolor=blue,
+    linkcolor=red,
+    urlcolor=red
+}
+
+
+\setboolean{@twoside}{false}
+\usepackage{color}
+%\usepackage[colorlinks=true]{hyperref}
+\usepackage{cite}
+\usepackage[font=footnotesize,labelfont=bf]{caption}
+
+\definecolor{green}{rgb}{0.0, 0.55, 0.55}
+\definecolor{blue}{rgb}{0.11, 0.25, 0.95}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+\definecolor{darkslateblue}{rgb}{0.28, 0.24, 0.55}
+\definecolor{mustard}{rgb}{1.0, 0.16, 0.95}
+
+\definecolor{White}{gray}{0.9}
+\definecolor{Black}{gray}{0.0}
+\definecolor{LightButter}{rgb}{0.98,0.91,0.31}
+\definecolor{LightOrange}{rgb}{0.98,0.68,0.24}
+\definecolor{LightChocolate}{rgb}{0.91,0.72,0.43}
+\definecolor{LightChameleon}{rgb}{0.54,0.88,0.20}
+\definecolor{LightSkyBlue}{rgb}{0.45,0.62,0.81}
+\definecolor{LightPlum}{rgb}{0.68,0.50,0.66}
+\definecolor{LightScarletRed}{rgb}{0.93,0.16,0.16}
+\definecolor{Butter}{rgb}{0.93,0.86,0.25}
+\definecolor{Orange}{rgb}{0.96,0.47,0.00}
+\definecolor{Chocolate}{rgb}{0.75,0.49,0.07}
+\definecolor{Chameleon}{rgb}{0.45,0.82,0.09}
+\definecolor{SkyBlue}{rgb}{0.20,0.39,0.64}
+\definecolor{Plum}{rgb}{0.46,0.31,0.48}
+\definecolor{ScarletRed}{rgb}{0.80,0.00,0.00}
+\definecolor{DarkButter}{rgb}{0.77,0.62,0.00}
+\definecolor{DarkOrange}{rgb}{0.80,0.36,0.00}
+\definecolor{DarkChocolate}{rgb}{0.56,0.35,0.01}
+\definecolor{DarkChameleon}{rgb}{0.30,0.60,0.02}
+\definecolor{DarkSkyBlue}{rgb}{0.12,0.29,0.53}
+\definecolor{DarkPlum}{rgb}{0.36,0.21,0.40}
+\definecolor{DarkScarletRed}{rgb}{0.64,0.00,0.00}
+\definecolor{Aluminium1}{rgb}{0.93,0.93,0.92}
+\definecolor{Aluminium2}{rgb}{0.82,0.84,0.81}
+\definecolor{Aluminium3}{rgb}{0.73,0.74,0.71}
+\definecolor{Aluminium4}{rgb}{0.53,0.54,0.52}
+\definecolor{Aluminium5}{rgb}{0.33,0.34,0.32}
+\definecolor{Aluminium6}{rgb}{0.18,0.20,0.21}
+
+%%% LISTINGS
+\usepackage{listings}
+\lstset{
+  backgroundcolor=\color{tenPercentGrey}, %
+  basicstyle=\color{Black}\ttfamily{}, %
+  keywordstyle=[1]\color{DarkSkyBlue}, %
+  keywordstyle=[2]\color{DarkScarletRed}, %
+  keywordstyle=[3]\bfseries{}, %
+  keywordstyle=[4]\color{DarkPlum}, %
+  keywordstyle=[5]\color{SkyBlue}, %
+  commentstyle=\color{Aluminium4}, %
+  stringstyle=\color{Chocolate}, %
+  identifierstyle=\color{Black}, %
+  emphstyle=\color{Black}, %
+  numbers=left, %
+  stepnumber=1, % 
+  frame=tb, %
+  captionpos=b, %
+  lineskip=\smallskipamount{}, %
+  aboveskip=\bigskipamount{}, %
+  belowskip=\medskipamount{}, %
+  commentstyle=\itshape\small{}, %
+  tabsize=2, %
+  breaklines=false, %
+  rulecolor=\color{Black!30}, %
+  showspaces=false, %
+  showstringspaces=false, %
+  showtabs=false, %
+} % chktex 6
+
+
+\DeclareCaptionFont{red}{\color{red}}
+\DeclareCaptionFont{green}{\color{green}}
+\DeclareCaptionFont{blue}{\color{blue}}
+\DeclareCaptionFont{bittersweet}{\color{bittersweet}}
+\DeclareCaptionFont{cerulean}{\color{cerulean}}
+\DeclareCaptionFont{mustard}{\color{mustard}}
+\DeclareCaptionFont{DarkScarletRed}{\color{DarkScarletRed}}
+\captionsetup{labelfont={blue,bf},textfont=DarkScarletRed}
+
+\let\oldFootnote\footnote
+\newcommand\nextToken\relax
+
+\renewcommand\footnote[1]{%
+    \oldFootnote{#1}\futurelet\nextToken\isFootnote}
+
+\newcommand\isFootnote{%
+    \ifx\footnote\nextToken\textsuperscript{,}\fi}
+
+
+\newcommand{\rE}{\mbox{\rm E}}
+\newcommand{\cov}{\mbox{Cov}}
+\newcommand{\corr}{\mbox{Corr}}
+\newcommand{\FT}{\mathcal{F}} %Fourier Transform Symbol
+\newcommand{\IFT}{\mathcal{F}^{-1}} %Inverse Fourier Transform Symbol
+\newcommand{\ej}{e^{j\omega}}
+\newcommand{\eJ}{e^{j\Omega}}
+\newcommand{\eJT}{e^{j\Omega T}}
+\newcommand{\spliteq}[1]{\begin{equation}\begin{split}#1\end{split}\end{equation}}
+\newcommand{\m}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+\newcommand{\intro}[1]{\textsc{\textcolor{ScarletRed}{#1}}}
+
+\newcommand{\texthd}[1]{\textsc{\textcolor{blue}{#1}}}
+
+\newcommand{\bX}{\mbox{\boldmath $X$}}
+\newcommand{\bx}{\mbox{\boldmath $x$}}
+\newcommand{\Tau}{\ensuremath{\tau}\xspace}
+
+\newcommand{\dotV}{\ensuremath{\dot{V}}\xspace}
+
+\newcommand{\dotd}{\ensuremath{\dot{d}}\xspace}
+\newcommand{\rdot}{\ensuremath{\dot{r}}\xspace}
+\newcommand{\xdot}{\ensuremath{\dot{x}}\xspace}
+\newcommand{\wdot}{\ensuremath{\dot{w}}\xspace}
+\newcommand{\zdot}{\ensuremath{\dot{z}}\xspace}
+\newcommand{\thetadot}{\ensuremath{\dot{\theta}}\xspace}
+\newcommand{\f}[1]{\ensuremath{f(#1)}\xspace}
+\newcommand{\R}{\ensuremath{\Bbb R}\xspace}
+
+\newcommand{\dotdd}{\ensuremath{\ddot{d}}\xspace}
+\newcommand{\xddot}{\ensuremath{\ddot{x}}\xspace}
+\newcommand{\wddot}{\ensuremath{\ddot{w}}\xspace}
+
+\newcommand{\Gs}[5]{#5(s) & = #3\bigg(sI - #1\bigg)^{-1}#2 + #4}
+
+\def\Cbb{{\mathbb C}}
+\def\Ebb{{\mathbb E}}
+\def\Kbb{{\mathbb K}}
+\def\Nbb{{\mathbb N}}
+\def\Rbb{{\mathbb R}}
+\def\Pbb{{\mathbb P}}
+
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Kcal{{\mathcal K}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Ucal{{\mathcal U}}
+\def\Vcal{{\mathcal V}}
+\def\Wcal{{\mathcal W}}
+\def\Xcal{{\mathcal X}}
+\def\Ycal{{\mathcal Y}}
+\def\Zcal{{\mathcal Z}}
+
+\def\abf{{\mathbf a}}
+\def\bbf{{\mathbf b}}
+\def\cbf{{\mathbf c}}
+\def\dbf{{\mathbf d}}
+\def\ebf{{\mathbf e}}
+\def\fbf{{\mathbf f}}
+\def\gbf{{\mathbf g}}
+\def\hbf{{\mathbf h}}
+\def\ibf{{\mathbf i}}
+\def\jbf{{\mathbf j}}
+\def\kbf{{\mathbf k}}
+\def\lbf{{\mathbf l}}
+\def\mbf{{\mathbf m}}
+\def\nbf{{\mathbf n}}
+\def\obf{{\mathbf o}}
+\def\pbf{{\mathbf p}}
+\def\qbf{{\mathbf q}}
+\def\rbf{{\mathbf r}}
+\def\sbf{{\mathbf s}}
+\def\tbf{{\mathbf t}}
+\def\ubf{{\mathbf u}}
+\def\vbf{{\mathbf v}}
+\def\wbf{{\mathbf w}}
+\def\xbf{{\mathbf x}}
+\def\ybf{{\mathbf y}}
+\def\zbf{{\mathbf z}}
+
+\def\Abf{{\mathbf A}}
+\def\Bbf{{\mathbf B}}
+\def\Cbf{{\mathbf C}}
+\def\Dbf{{\mathbf D}}
+\def\Ebf{{\mathbf E}}
+\def\Fbf{{\mathbf F}}
+\def\Gbf{{\mathbf G}}
+\def\Hbf{{\mathbf H}}
+\def\Ibf{{\mathbf I}}
+\def\Jbf{{\mathbf J}}
+\def\Kbf{{\mathbf K}}
+\def\Lbf{{\mathbf L}}
+\def\Mbf{{\mathbf M}}
+\def\Nbf{{\mathbf N}}
+\def\Obf{{\mathbf O}}
+\def\Pbf{{\mathbf P}}
+\def\Qbf{{\mathbf Q}}
+\def\Rbf{{\mathbf R}}
+\def\Sbf{{\mathbf S}}
+\def\Tbf{{\mathbf T}}
+\def\Ubf{{\mathbf U}}
+\def\Vbf{{\mathbf V}}
+\def\Wbf{{\mathbf W}}
+\def\Xbf{{\mathbf X}}
+\def\Ybf{{\mathbf Y}}
+\def\Zbf{{\mathbf Z}}
+
+\def\Abb{{\mathbb A}}
+\def\Bbb{{\mathbb B}}
+\def\Cbb{{\mathbb C}}
+\def\Dbb{{\mathbb D}}
+\def\Ebb{{\mathbb E}}
+\def\Fbb{{\mathbb F}}
+\def\Gbb{{\mathbb G}}
+\def\Hbb{{\mathbb H}}
+\def\Ibb{{\mathbb I}}
+\def\Jbb{{\mathbb J}}
+\def\Kbb{{\mathbb K}}
+\def\Lbb{{\mathbb L}}
+\def\Mbb{{\mathbb M}}
+\def\Nbb{{\mathbb N}}
+\def\Obb{{\mathbb O}}
+\def\Pbb{{\mathbb P}}
+\def\Qbb{{\mathbb Q}}
+\def\Rbb{{\mathbb R}}
+\def\Sbb{{\mathbb S}}
+\def\Tbb{{\mathbb T}}
+\def\Ubb{{\mathbb U}}
+\def\Vbb{{\mathbb V}}
+\def\Wbb{{\mathbb W}}
+\def\Xbb{{\mathbb X}}
+\def\Ybb{{\mathbb Y}}
+\def\Zbb{{\mathbb Z}}
+
+\newcommand{\ejw}[1]{e^{-#1 j\omega}}
+\newcommand{\xpj}[1]{e^{#1j}}
+\setlength{\belowcaptionskip}{-6pt}
+\setlength{\abovecaptionskip}{3.0pt}
+
+\newcommand\figref{Figure~\ref}

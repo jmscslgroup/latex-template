@@ -1,0 +1,250 @@
+\ProvidesPackage{rahulbhadani}
+
+\usepackage{graphicx,hhline}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amscd}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage[export]{adjustbox}
+\usepackage[final]{pdfpages}
+\usepackage{xcolor}
+\usepackage{gensymb}
+
+
+\usepackage{enumitem}
+\setlist{nolistsep}
+
+\usepackage{physics}
+\usepackage{xspace}
+\usepackage{minted}
+\usepackage{mdframed}
+\usemintedstyle{manni}
+
+\usepackage{color}
+\usepackage[colorlinks=true]{hyperref}
+\usepackage{cite}
+\usepackage[none]{hyphenat}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage{sectsty}
+\usepackage[makeroom]{cancel}
+
+
+
+%%%%%%%%%%%  Special Math Letter Notations %%%%%%%%%%
+\def\Acal{{\mathcal A}}
+\def\Bcal{{\mathcal B}}
+\def\Ccal{{\mathcal C}}
+\def\Dcal{{\mathcal D}}
+\def\Ecal{{\mathcal E}}
+\def\Fcal{{\mathcal F}}
+\def\Gcal{{\mathcal G}}
+\def\Hcal{{\mathcal H}}
+\def\Ical{{\mathcal I}}
+\def\Jcal{{\mathcal J}}
+\def\Kcal{{\mathcal K}}
+\def\Lcal{{\mathcal L}}
+\def\Mcal{{\mathcal M}}
+\def\Ncal{{\mathcal N}}
+\def\Ocal{{\mathcal O}}
+\def\Pcal{{\mathcal P}}
+\def\Qcal{{\mathcal Q}}
+\def\Rcal{{\mathcal R}}
+\def\Scal{{\mathcal S}}
+\def\Tcal{{\mathcal T}}
+\def\Ucal{{\mathcal U}}
+\def\Vcal{{\mathcal V}}
+\def\Wcal{{\mathcal W}}
+\def\Xcal{{\mathcal X}}
+\def\Ycal{{\mathcal Y}}
+\def\Zcal{{\mathcal Z}}
+
+\def\abf{{\mathbf a}}
+\def\bbf{{\mathbf b}}
+\def\cbf{{\mathbf c}}
+\def\dbf{{\mathbf d}}
+\def\ebf{{\mathbf e}}
+\def\fbf{{\mathbf f}}
+\def\gbf{{\mathbf g}}
+\def\hbf{{\mathbf h}}
+\def\ibf{{\mathbf i}}
+\def\jbf{{\mathbf j}}
+\def\kbf{{\mathbf k}}
+\def\lbf{{\mathbf l}}
+\def\mbf{{\mathbf m}}
+\def\nbf{{\mathbf n}}
+\def\obf{{\mathbf o}}
+\def\pbf{{\mathbf p}}
+\def\qbf{{\mathbf q}}
+\def\rbf{{\mathbf r}}
+\def\sbf{{\mathbf s}}
+\def\tbf{{\mathbf t}}
+\def\ubf{{\mathbf u}}
+\def\vbf{{\mathbf v}}
+\def\wbf{{\mathbf w}}
+\def\xbf{{\mathbf x}}
+\def\ybf{{\mathbf y}}
+\def\zbf{{\mathbf z}}
+
+\def\Abf{{\mathbf A}}
+\def\Bbf{{\mathbf B}}
+\def\Cbf{{\mathbf C}}
+\def\Dbf{{\mathbf D}}
+\def\Ebf{{\mathbf E}}
+\def\Fbf{{\mathbf F}}
+\def\Gbf{{\mathbf G}}
+\def\Hbf{{\mathbf H}}
+\def\Ibf{{\mathbf I}}
+\def\Jbf{{\mathbf J}}
+\def\Kbf{{\mathbf K}}
+\def\Lbf{{\mathbf L}}
+\def\Mbf{{\mathbf M}}
+\def\Nbf{{\mathbf N}}
+\def\Obf{{\mathbf O}}
+\def\Pbf{{\mathbf P}}
+\def\Qbf{{\mathbf Q}}
+\def\Rbf{{\mathbf R}}
+\def\Sbf{{\mathbf S}}
+\def\Tbf{{\mathbf T}}
+\def\Ubf{{\mathbf U}}
+\def\Vbf{{\mathbf V}}
+\def\Wbf{{\mathbf W}}
+\def\Xbf{{\mathbf X}}
+\def\Ybf{{\mathbf Y}}
+\def\Zbf{{\mathbf Z}}
+
+\def\Abb{{\mathbb A}}
+\def\Bbb{{\mathbb B}}
+\def\Cbb{{\mathbb C}}
+\def\Dbb{{\mathbb D}}
+\def\Ebb{{\mathbb E}}
+\def\Fbb{{\mathbb F}}
+\def\Gbb{{\mathbb G}}
+\def\Hbb{{\mathbb H}}
+\def\Ibb{{\mathbb I}}
+\def\Jbb{{\mathbb J}}
+\def\Kbb{{\mathbb K}}
+\def\Lbb{{\mathbb L}}
+\def\Mbb{{\mathbb M}}
+\def\Nbb{{\mathbb N}}
+\def\Obb{{\mathbb O}}
+\def\Pbb{{\mathbb P}}
+\def\Qbb{{\mathbb Q}}
+\def\Rbb{{\mathbb R}}
+\def\Sbb{{\mathbb S}}
+\def\Tbb{{\mathbb T}}
+\def\Ubb{{\mathbb U}}
+\def\Vbb{{\mathbb V}}
+\def\Wbb{{\mathbb W}}
+\def\Xbb{{\mathbb X}}
+\def\Ybb{{\mathbb Y}}
+\def\Zbb{{\mathbb Z}}
+
+%%%%%%%% Define colors and captions %%%%%%%%%%%%%%%%%
+
+\definecolor{red}{rgb}{0.9, 0.17, 0.41}
+\definecolor{green}{rgb}{0.0, 0.35, 0.45}
+\definecolor{blue}{rgb}{0.41, 0.35, 0.95}
+\definecolor{bittersweet}{rgb}{1.0, 0.44, 0.37}
+\definecolor{cerulean}{rgb}{0.0, 0.48, 0.65}
+\definecolor{darkslateblue}{rgb}{0.28, 0.24, 0.55}
+\definecolor{mustard}{rgb}{1.0, 0.16, 0.95}
+\definecolor{scarletred}{rgb}{0.9, 0.03, 0.03}
+
+\DeclareCaptionFont{red}{\color{red}}
+\DeclareCaptionFont{green}{\color{green}}
+\DeclareCaptionFont{blue}{\color{blue}}
+\DeclareCaptionFont{bittersweet}{\color{bittersweet}}
+\DeclareCaptionFont{cerulean}{\color{cerulean}}
+\DeclareCaptionFont{mustard}{\color{mustard}}
+\captionsetup{labelfont={blue,bf},textfont=cerulean}
+
+
+%%%%%%%%%%%%%% Custom Commands for Equations %%%%%%%%%%%%%%%%
+\newcommand{\spliteq}[1]{\begin{equation}\begin{split}#1\end{split}\end{equation}}
+\newcommand{\m}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand\cut[2][black]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\newcommand\cutto[3][black]{\renewcommand\CancelColor{\color{#1}}\cancelto{#2}{#3}}
+
+%%%%%%%%%%%%% Paper settings %%%%%%%%%%%%%
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\belowcaptionskip}{-1pt}
+\setboolean{@twoside}{false}
+
+%%%%%%%%%%%% Custom font styles %%%%%%%%%%
+\newcommand{\texthd}[1]{\textsc{\textcolor{blue}{#1}}}
+
+\theoremstyle{plain}
+\newtheorem{thm}{Theorem}[chapter] % reset theorem numbering for each chapter
+
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition} % definition numbers are dependent on theorem numbers
+\newtheorem{exmp}[thm]{Example} % same for example numbers
+
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+    \usepackage[vmargin=1.0in, hmargin=1.25in]{geometry}
+    
+   \usepackage{mathptmx}
+\usepackage[12pt]{moresize}
+
+\makeatletter
+\def\@makechapterhead#1{%
+  \vspace{40\p@}%
+  {\parindent \z@ \raggedright 
+  \color{red}\bf
+  \hspace*{\fill}\HUGE $\spadesuit$ \thechapter\\
+  \sc
+  \vskip 20\p@
+  \hrule
+  \vskip 20\p@   
+   \interlinepenalty\@M
+   \Huge #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+
+    \renewcommand{\chaptername}{\HUGE{\sf \S}}
+   
+\chapterfont{\color{red}\sc}
+\sectionfont{\sc\color{scarletred}}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{tgpagella}
+
+
+\newcommand\figref{Figure~\ref}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.25em}
+\renewcommand{\baselinestretch}{1.25}
+
+\definecolor{gray}{rgb}{0.10, 0.10, 0.10}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+	
+%\newenvironment{code}[1]
+%{\begin{listing}[ht]
+%\begin{minted}
+%[
+%framesep=2mm,
+%baselinestretch=1.2,
+%bgcolor=blue!30!white,
+%fontsize=\footnotesize,
+%]
+%}{#1}
+%{ 
+%\end{minted}
+%\end{listing}%$
+%}
+%--------------------------------------------------

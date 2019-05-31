@@ -1,0 +1,5 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+sudo apt\PYGZhy{}get install golang python3\PYGZhy{}dev python\PYGZhy{}dev libcupti\PYGZhy{}dev libjpeg\PYGZhy{}turbo8\PYGZhy{}dev \PYG{l+s+se}{\PYGZbs{}}
+make tmux htop chromium\PYGZhy{}browser git cmake zlib1g\PYGZhy{}dev libjpeg\PYGZhy{}dev  \PYG{l+s+se}{\PYGZbs{}}
+xvfb xorg\PYGZhy{}dev python\PYGZhy{}opengl libboost\PYGZhy{}all\PYGZhy{}dev libsdl2\PYGZhy{}dev swig
+\end{Verbatim}

@@ -1,0 +1,72 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c}{\PYGZpc{} (C) RAHUL BHADANI}
+\PYG{c}{\PYGZpc{} Problem 5}
+
+\PYG{c}{\PYGZpc{} Kennedy Receiver \PYGZhy{} BPSK}
+
+\PYG{n}{N} \PYG{p}{=} \PYG{l+m+mf}{0.0000001}\PYG{p}{:}\PYG{l+m+mf}{0.0001}\PYG{p}{:}\PYG{l+m+mi}{10}\PYG{p}{;}
+\PYG{n}{P} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n+nb}{size}\PYG{p}{(}\PYG{n}{N}\PYG{p}{));}
+\PYG{n}{b\PYGZus{}root} \PYG{p}{=} \PYG{n+nb}{zeros}\PYG{p}{(}\PYG{n+nb}{size}\PYG{p}{(}\PYG{n}{N}\PYG{p}{));}
+
+\PYG{k}{for} \PYG{n+nb}{j} \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{n+nb}{length}\PYG{p}{(}\PYG{n}{N}\PYG{p}{)}
+    \PYG{n}{a} \PYG{p}{=} \PYG{n+nb}{sqrt}\PYG{p}{(}\PYG{n}{N}\PYG{p}{(}\PYG{n+nb}{j}\PYG{p}{));}
+    
+    \PYG{c}{\PYGZpc{}Newton Raphson Method, \PYGZpc{}Find the roots of dPE/dbeta = 0}
+    \PYG{n}{bn} \PYG{p}{=} \PYG{l+m+mf}{0.5}\PYG{p}{;} \PYG{c}{\PYGZpc{}Initial Guess of the roopts of dPE/dbeta}
+    \PYG{c}{\PYGZpc{}We are doing 10000 iterations}
+    \PYG{k}{for} \PYG{n+nb}{i}  \PYG{p}{=} \PYG{l+m+mi}{1}\PYG{p}{:}\PYG{l+m+mi}{10000}
+        \PYG{n}{b\PYGZus{}next} \PYG{p}{=} \PYG{n}{bn} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{f}\PYG{p}{(}\PYG{n}{bn}\PYG{p}{,}\PYG{n}{a}\PYG{p}{)}\PYG{o}{./}\PYG{n}{fdash}\PYG{p}{(}\PYG{n}{bn}\PYG{p}{,}\PYG{n}{a}\PYG{p}{));}
+        \PYG{n}{bn} \PYG{p}{=} \PYG{n}{b\PYGZus{}next}\PYG{p}{;}
+    \PYG{k}{end}
+    \PYG{n}{b\PYGZus{}root}\PYG{p}{(}\PYG{n+nb}{j}\PYG{p}{)} \PYG{p}{=} \PYG{n}{b\PYGZus{}next}\PYG{p}{;}
+    \PYG{n}{P}\PYG{p}{(}\PYG{n+nb}{j}\PYG{p}{)} \PYG{p}{=} \PYG{n}{PE}\PYG{p}{(}\PYG{n}{b\PYGZus{}next}\PYG{p}{,} \PYG{n}{a}\PYG{p}{);}
+
+\PYG{k}{end}
+
+\PYG{n}{fig}\PYG{p}{=} \PYG{n}{figure}\PYG{p}{;}
+\PYG{n}{fig}\PYG{p}{.}\PYG{n}{Position} \PYG{p}{=} \PYG{p}{[}\PYG{l+m+mi}{652}   \PYG{l+m+mi}{490}   \PYG{l+m+mi}{593}   \PYG{l+m+mi}{479}\PYG{p}{];}
+\PYG{n}{PEDD} \PYG{p}{=} \PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.}\PYG{o}{*}\PYG{n}{N}\PYG{p}{);}
+
+\PYG{n}{P\PYGZus{}Dolinar} \PYG{p}{=} \PYG{l+m+mf}{0.5}\PYG{o}{.*}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{o}{\PYGZhy{}} \PYG{n+nb}{sqrt}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{l+m+mf}{4.}\PYG{o}{*}\PYG{n}{N}\PYG{p}{)));}
+\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{semilogx}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{PEDD}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}LineWidth\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{hold} \PYG{n}{on}\PYG{p}{;}
+\PYG{n}{semilogx}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{P}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}b\PYGZhy{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}LineWidth\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{semilogx}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{P\PYGZus{}Dolinar}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}k\PYGZhy{}\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}LineWidth\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{);}
+\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}N\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}\PYGZdl{}P\PYGZus{}e\PYGZdl{} Average probability of the error\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{set}\PYG{p}{(}\PYG{n}{gca}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}FontSize\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{16}\PYG{p}{);}
+\PYG{n}{set}\PYG{p}{(}\PYG{n}{gca}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}FontName\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Times\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{title}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}\PYGZdl{}P(error)\PYGZdl{} for the Kennedy receiver\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{grid} \PYG{n}{on}\PYG{p}{;}
+\PYG{n}{grid} \PYG{n}{minor}\PYG{p}{;}
+\PYG{n}{legend}\PYG{p}{(\PYGZob{}}\PYG{l+s}{\PYGZsq{}\PYGZdl{}\PYGZbs{}textbf\PYGZob{}Direct Detection\PYGZhy{}Equal Prior\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{p}{,}\PYG{c}{...}
+    \PYG{l+s}{\PYGZsq{}\PYGZdl{}\PYGZbs{}textbf\PYGZob{}Kennedy Receiver\PYGZhy{}Equal Prior\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{p}{,}\PYG{c}{...}
+    \PYG{l+s}{\PYGZsq{}\PYGZdl{}\PYGZbs{}textbf\PYGZob{}Dolinar Receiver\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{c}{...}
+    \PYG{p}{\PYGZcb{},}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+
+\PYG{n}{subplot}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{,}\PYG{l+m+mi}{1}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{n}{plot}\PYG{p}{(}\PYG{n}{N}\PYG{p}{,} \PYG{n}{b\PYGZus{}root}\PYG{p}{,} \PYG{l+s}{\PYGZsq{}g\PYGZhy{}\PYGZhy{}\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}LineWidth\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{n}{xlabel}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}N\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{ylabel}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}\PYGZdl{}\PYGZbs{}beta\PYGZdl{}\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{set}\PYG{p}{(}\PYG{n}{gca}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}FontSize\PYGZsq{}}\PYG{p}{,}\PYG{l+m+mi}{16}\PYG{p}{);}
+\PYG{n}{set}\PYG{p}{(}\PYG{n}{gca}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}FontName\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Times\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{title}\PYG{p}{(}\PYG{l+s}{\PYGZsq{}\PYGZdl{}\PYGZbs{}textbf\PYGZob{}Optimal Beta as a function of N\PYGZcb{}\PYGZdl{}\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}Interpreter\PYGZsq{}}\PYG{p}{,}\PYG{l+s}{\PYGZsq{}latex\PYGZsq{}}\PYG{p}{);}
+\PYG{n}{grid} \PYG{n}{on}\PYG{p}{;}
+\PYG{n}{grid} \PYG{n}{minor}\PYG{p}{;}
+
+\PYG{c}{\PYGZpc{} savefig(fig, \PYGZsq{}figures/rahulbhadani\PYGZus{}OPTI\PYGZus{}595B\PYGZus{}Q5.fig\PYGZsq{});}
+\PYG{c}{\PYGZpc{} saveas(gcf,\PYGZsq{}figures/rahulbhadani\PYGZus{}OPTI\PYGZus{}595B\PYGZus{}Q5.pdf\PYGZsq{});}
+
+\PYG{k}{function}\PYG{+w}{ }PRET \PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{PE}\PYG{p}{(}b, a\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{PRET} \PYG{p}{=} \PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{p}{(}\PYG{l+m+mi}{1} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{o}{.*}\PYG{n}{b}\PYG{p}{))} \PYG{o}{+} \PYG{l+m+mf}{0.5}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(} \PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a} \PYG{o}{+} \PYG{n}{b}\PYG{p}{)}\PYG{o}{.\PYGZca{}}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{function}\PYG{+w}{ }fRET \PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{f}\PYG{p}{(}b, a\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{fRET} \PYG{p}{=} \PYG{n}{b}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{o}{*}\PYG{n}{b}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{p}{(}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{);}
+\PYG{k}{end}
+
+\PYG{k}{function}\PYG{+w}{ }fdashRET \PYG{p}{=}\PYG{+w}{ }\PYG{n+nf}{fdash}\PYG{p}{(}b, a\PYG{p}{)}
+\PYG{+w}{    }\PYG{n}{fdashRET} \PYG{p}{=} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{p}{((}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{p}{(}\PYG{n}{b}\PYG{o}{+}\PYG{l+m+mf}{2.}\PYG{o}{*}\PYG{n}{a}\PYG{p}{)}\PYGZca{}\PYG{l+m+mi}{2}\PYG{p}{)} \PYG{o}{\PYGZhy{}} \PYG{l+m+mi}{2}\PYG{o}{*}\PYG{n}{b}\PYG{o}{*}\PYG{n}{b}\PYG{o}{*}\PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{o}{*}\PYG{n}{b}\PYG{p}{)} \PYG{o}{+} \PYG{n+nb}{exp}\PYG{p}{(}\PYG{o}{\PYGZhy{}}\PYG{n}{b}\PYG{o}{*}\PYG{n}{b}\PYG{p}{);}
+\PYG{k}{end}
+\end{Verbatim}
